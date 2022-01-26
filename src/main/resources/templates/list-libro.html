@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+  <div id="navbar" th:replace="/fragments/navbar :: userNav"></div>
+
+
+  <main>
+    <!--BACKGROUND-->
+    <section class="py-0  text-center container-xxl">
+      <div class="row ">
+        <section id="feat">
+
+          <div class="container mt-5 mb-5">
+
+            <div class="row justify-content-center">
+
+              <div class="flex-container  bg-black text-light">
+                <div class="p-4 ">
+                  <h2 class="fw-bold">Lista de Libros</h2>
+
+                  <table class="table table-dark mt-3">
+
+                    <hr class="my-2 text-white rounded" />
+                    <thead>
+                      <tr class="text-center">
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Autor</th>
+                        <th scope="col">Año</th>
+                        <th scope="col">Editorial</th>
+                        <th scope="col">Ej. disponibles</th>
+                        <th scope="col" sec:authorize="hasRole('ADMIN')">Esta activo?</th>
+                        <th scope="col" sec:authorize="hasRole('ADMIN')">Acciones</th>
+                      </tr>
+                    </thead>
+
+                    <tbody th:each="libro : ${libros}"
+                      th:if="${libro.alta}==true OR ${#authorization.expression('hasRole(''ADMIN'')')}">
+                      <tr class="text-center">
+                        <td><a th:text="${libro.titulo}" th:href="@{/libro/__${libro.id}__}"></a></td>
+
+                        <td><a th:text="${libro.autor.nombre}" th:href="@{/autor/__${libro.autor.id}__}"></a></td>
+
+                        <td th:text="${libro.anio}"></td>
+                        <td th:text="${libro.editorial.nombre}"></td>
+                        <td th:text="${libro.ejemplaresRestantes}" class="text-center"></td>
+
+                        <td sec:authorize="hasRole('ADMIN')">
+                          <i th:if="${libro.alta}" class="fa fa-circle text-success"></i>
+                          <i th:unless="${libro.alta}" class="fa fa-circle" style="color: red;"></i>
+                        </td>
+                        <td sec:authorize="hasRole('ADMIN')">
+                          <a th:href="@{/libro/alta/__${libro.id}__}"><i class="fa fa-arrow-up"></i></a>
+                          <a th:href="@{/libro/baja/__${libro.id}__}"><i class="fa fa-ban"></i></a>
+                          <a th:href="@{/libro/modificar/__${libro.id}__}"><i class="fas fa-feather-alt"></i></a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <section sec:authorize="hasRole('ADMIN')">
+
+                    <button type="button" class="btn btn-primary text-decoration-none "><a
+                        th:href="@{/autor/agregar}">añadir
+                        autor</a></button>
+                    <button type="button" class="btn btn-primary "><a th:href="@{/editorial/agregar}">añadir
+                        editorial</a></button>
+                    <button type="button" class="btn btn-danger "><a th:href="@{/}">volver</a></button>
+                  </section>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+
+  <footer>
+    <div th:replace="/fragments/footer :: myFoot"></div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

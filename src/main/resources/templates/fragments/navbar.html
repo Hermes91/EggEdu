@@ -1,0 +1,65 @@
+<html>
+
+<body>
+
+    <div th:fragment="userNav">
+
+        <nav class="collapse bg-black" id="navbarHeader">
+            <div class="container" id="hidden">
+                <div class="row py-3 px-3 ">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="text-white" href="/registro"
+                                th:if="${session.usuariosession == null}">Registrate</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-white" href="/log-on" th:if="${session.usuariosession == null}">Log
+                                In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-white"
+                                th:href="@{/usuario/editar-perfil(id=__${session.usuariosession.id}__)}"
+                                th:if="${session.usuariosession != null}">Mi Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-white" th:href="@{/libro/lista}"
+                                th:if="${session.usuariosession != null}">Lista de libros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-white" sec:authorize="hasRole('ADMIN')" th:href="@{/libro/agregar}">Cargar
+                                Libro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="text-white" sec:authorize="hasRole('ADMIN')"
+                                th:href="@{/admin/dashboard}"><strong><i>Dashboard</i></strong></a>
+                        </li>
+                        <br>
+                        <li class="nav-item">
+                            <a class="text-white" href="/logout" th:if="${session.usuariosession != null}">Salir</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-dark bg-black shadow-sm">
+            <div class="container">
+                <a href="/#" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-bookshelf" viewBox="0 0 16 16">
+                        <path
+                            d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zM3 14h10v-3H3v3zm0-4h10V7H3v3zm0-4h10V3H3v3z" />
+                    </svg>
+                    <strong>Biblioteca.com</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+</body>
+
+</html>

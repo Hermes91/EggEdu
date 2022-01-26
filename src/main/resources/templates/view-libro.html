@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+    <div th:replace="/fragments/navbar :: userNav"></div>
+
+    <main>
+        <!--BACKGROUND-->
+        <section class="py-0  text-center container-xxl">
+            <div class="row ">
+                <section id="feat"><br>
+
+
+                    <div class="row justify-content-center">
+                        <div class="flex-container  col-md-8 text-light align-items-center justify-content-center">
+                            <div class="card-body">
+
+                                <h4 class="card-title text-left" th:text="${libro.titulo}"></h4>
+                                <hr class="my-2 text-white rounded" />
+
+                                <section class="d-flex align-items-top py-3">
+                                    <p class="text-left " th:text="${libro.review}"> </p>
+
+                                    <img class="img-fluid  w-25 px-3  " th:src="${'/foto/libro/' + libro.id}" alt="">
+                                </section>
+
+                                <section class="text-left">
+                                    <i>Autor/a <a th:text="${libro.autor.nombre}"
+                                            th:href="@{/autor/__${libro.autor.id}__}"></a></i>
+                                </section>
+                                <br>
+                                <button type="button" class="btn btn-danger "><a
+                                        th:href="@{/libro/lista}">volver</a></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div th:replace="/fragments/footer :: myFoot"></div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/fragments/head :: head">
+</head>
+
+<body>
+    <div th:replace="/fragments/navbar :: userNav"></div>
+
+
+    <main>
+        <!--BACKGROUND-->
+        <section class="py-0  text-center container-xxl">
+            <div class="row ">
+                <section id="feat">
+
+                    <div class="container mt-5">
+
+                        <div class="row justify-content-center">
+                            <div class="flex-container col-md-5 align-items-center bg-black text-light">
+                                <div class="p-5">
+                                    <h2>Bienvenido/a
+                                        <h2 class="masthead-subheading mb-0" th:if="${session.usuariosession != null}"
+                                            th:text="${session.usuariosession.nombre + ' ' +session.usuariosession.apellido}">
+                                        </h2>
+                                </div>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div th:replace="/fragments/footer :: myFoot"></div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>

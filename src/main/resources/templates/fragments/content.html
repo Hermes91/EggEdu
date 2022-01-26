@@ -1,0 +1,26 @@
+<html>
+
+<body>
+
+    <!--  panel de control para usuarios  -->
+    <content th:fragment="cont1">
+        <p class="mt-4 justify-content-center" id="cont1">
+            <a th:href="@{/libro/lista}" class="b1-container ">Catálogo de Libros</a>
+            <a th:href="@{/libro/agregar}" sec:authorize="hasRole('ADMIN')" class="b1-container">Cargar Libro</a>
+        </p>
+    </content>
+
+
+    <!--  para usuarios no registrados  -->
+    <content th:fragment="cont2">
+
+        <p class="mt-4 justify-content-center" id="cont2">
+            <a th:href="@{/log-on}" class="b1-container">Log In</a>
+            <a th:href="@{/registro}" class="b1-container">Crear Cuenta</a>
+        </p>
+
+    </content>
+
+</body>
+
+</html>

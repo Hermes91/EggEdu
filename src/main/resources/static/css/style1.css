@@ -1,0 +1,86 @@
+.center {
+	display: block;
+	margin-left: -120px;
+	margin-right: auto;
+	background-color: #ffffff;
+	width: 700px;
+	opacity: 1;
+}
+
+#feat {
+	background-image: url("../img/books.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	min-height: 500px;
+	background-position: center;
+	padding-right: 25px;
+}
+
+.fbtn {
+	padding-top: 13%;
+}
+
+.flex-container {
+	border-radius: 8px;
+	/*background: linear-gradient(-45deg, #efefbb, #d4d3dd);*/
+	background-color: rgb(0, 0, 0);
+	padding: 10px;
+}
+
+.flex-container div {
+	border: 0.1rem solid ghostwhite;
+	line-height: 15pt;
+	padding: 25px 10px 10px 20px;
+	margin: 10px;
+}
+
+.b1-container {
+	border-style: solid;
+	border-width: thin;
+	border-color: cornsilk;
+	border-radius: 5px;
+	padding: 8px;
+}
+
+a:link {
+	color: #ffffff;
+	text-decoration: none;
+}
+a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+a:hover {
+	color: #ffffff;
+	text-decoration: underline;
+}
+a:active {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a {
+	color: #ffffff;
+}
+
+#Foot a:link {
+	color: #000000;
+	text-decoration: none;
+}
+#Foot a:visited {
+	color: #0044ff;
+	text-decoration: none;
+}
+#Foot a:hover {
+	color: #000000;
+	text-decoration: underline;
+}
+#Foot a:active {
+	color: #0044ff;
+	text-decoration: none;
+}
+
+hr {
+	border-style: solid;
+	border-width: 4px;
+}

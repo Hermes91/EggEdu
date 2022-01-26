@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="/fragments/head :: head">
+</head>
+<title>EXITO</title>
+
+<body>
+
+    <!--NAVBAR-->
+    <div th:replace="/fragments/navbar :: userNav"></div>
+
+
+    <!--BACKGROUND-->
+    <main>
+
+        <section class="py-0  text-center container-xxl">
+            <div class="row ">
+                <section id="feat"><br>
+                    <section>
+                        <div class="row justify-content-md-center">
+                            <div class="card col-md-4 bg-success text-white p-2">
+                                <h2 class="display-4" th:text="${titulo}"></h2>
+                                <p th:text="${descripcion}"></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="container mt-4 justify-content-center ">
+
+                        <h2 class="masthead-subheading" th:if="${session.usuariosession != null}"
+                            th:text="${session.usuariosession.nombre + ' ' +session.usuariosession.apellido}">
+                        </h2>
+
+                        <a th:href="@{/usuario/editar-perfil(id=__${session.usuariosession.id}__)}"
+                            th:if="${session.usuariosession != null}" class="btn b1-container bg-black">Revisa tu
+                            perfil</a>
+
+                        <a th:href="@{/log-on}" class="btn b1-container bg-black">Login</a>
+
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div th:replace="/fragments/footer :: myFoot"></div>
+    </footer>
+
+    <!-- <script src="../static/libs/bootstrap/dist/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
